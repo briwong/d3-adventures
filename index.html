@@ -164,19 +164,22 @@
                         })
                         .attr({
                             x: function(d, i) {
+                                var indexPos = w / data.length * i
                                 if (d.Network == 'Bravo') {
-                                    return w / data.length * i - 45;
+                                    return indexPos - 45;
                                 } else if (d.Network == 'ESPN2') {
-                                    return w / data.length * i - 90;
+                                    return indexPos - 90;
+                                } else if (d.Network == 'MSNBC') {
+                                    return indexPos - 76;
                                 } else {
-                                    return w / data.length * i - 80;
+                                    return indexPos - 80;
                                 }
                             },
                             y: function(d, i) {
                                 if (d.Network == 'TBS') {
                                     return yScale(d.X2013);
                                 } else {
-                                    return yScale(d.X2013) - 5;
+                                    return yScale(d.X2013) - 6;
                                 }
                             },
                             class: "annotate"
